@@ -3,10 +3,12 @@
   <h1><%= category.name %></h1>
   <% category.items.each do |item| %>
   <div class="item">
+#ここで、jqueryを使って動的なアクションを画面遷移せずに行う。
     <%= form_for State.new, :remote => true do |f| %>
       <%= f.hidden_field :item_id, value: item.id %>
       <%= item.name %>  
       <%= f.text_field :value %>
+#submitによってデータを飛ばしたりする。
       <%= f.submit %>
     <% end %>
   </div>
