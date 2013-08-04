@@ -3,7 +3,12 @@
   <h1><%= category.name %></h1>
   <% category.items.each do |item| %>
   <div class="item">
-    <%= item.name %>  
+    <%= form_for State.new, :remote => true do |f| %>
+      <%= f.hidden_field :item_id, value: item.id %>
+      <%= item.name %>  
+      <%= f.text_field :value %>
+      <%= f.submit %>
+    <% end %>
   </div>
   <% end %>
 </div>

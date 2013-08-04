@@ -27,7 +27,7 @@ class StatesController < ApplicationController
   # POST /states.json
   def create
     @state = State.new(state_params)
-
+=begin
     respond_to do |format|
       if @state.save
         format.html { redirect_to @state, notice: 'State was successfully created.' }
@@ -37,6 +37,7 @@ class StatesController < ApplicationController
         format.json { render json: @state.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /states/1
@@ -71,6 +72,6 @@ class StatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def state_params
-      params[:state]
+      params.require(:state).permit(:user_id, :item_id, :value)
     end
 end
