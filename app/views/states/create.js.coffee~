@@ -1,1 +1,1 @@
-alert "FJEOJEWO"
+alert "<%= @state.value %>"
